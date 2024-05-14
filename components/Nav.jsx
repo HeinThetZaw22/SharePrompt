@@ -1,20 +1,27 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { signIn, signOut, getSession, getProviders } from "next-auth/react";
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import { useState, useEffect } from "react";
 
 const Nav = () => {
-  const isLoggedIn = true;
+  const {data: session} = useSession();
+  // const isLoggedIn = true;
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
   //to allow google login/signIN
   useEffect(() => {
-    const setProvider = async () => {
-      const response = await getProviders();
-      setProviders(response);
+    const setUpProvider = async () => {
+      try {
+        const response = await getProviders();
+
+        setProviders(response);
+      } catch (error) {
+        console.log('Error fetching providers:', error);
+      }
     };
-    setProvider();
+    setUpProvider();
+    // console.log(providers);
   }, []);
   return (
     <nav className=" flex-between w-full pt-3 mb-16">
@@ -29,7 +36,7 @@ const Nav = () => {
       </Link>
       {/* desktop view  */}
       <div className=" sm:flex hidden ">
-        {isLoggedIn ? (
+        {session?.user ? (
           <div className="flex gap-2 md:gap-5">
             <Link href={"/create-prompt"} className="black_btn">
               Create Post
@@ -43,18 +50,18 @@ const Nav = () => {
                 className=" rounded-full"
                 width={37}
                 height={37}
-                src="/assets/images/logo.svg"
+                src={session?.user.image}
               />
             </Link>
           </div>
         ) : (
           <>
             {providers &&
-              Object.values(providers).map((providr) => (
+              Object.values(providers).map((provider) => (
                 <button
                   type="button"
-                  key={providers.name}
-                  onClick={() => signIn(providers.id)}
+                  key={provider.name}
+                  onClick={() => signIn(provider.id)}
                   className="black_btn"
                 >
                   Sign In
@@ -63,16 +70,18 @@ const Nav = () => {
           </>
         )}
       </div>
+      {/* {alert(session?.user)} */}
+      {/* {alert(providers)} */}
       {/* mobile view  */}
       <div className="sm:hidden flex">
-        {isLoggedIn ? (
+        {session?.user ? (
           <div className=" relative">
             <Image
               alt="profile"
               className=" rounded-full"
               width={37}
               height={37}
-              src="/assets/images/logo.svg"
+              src={session?.user.image}
               onClick={() => setToggleDropdown((pre) => !pre)}
             />
             {toggleDropdown && (
@@ -107,11 +116,11 @@ const Nav = () => {
         ) : (
           <>
             {providers &&
-              Object.values(providers).map((providr) => (
+              Object.values(providers).map((provider) => (
                 <button
                   type="button"
-                  key={providers.name}
-                  onClick={() => signIn(providers.id)}
+                  key={provider.name}
+                  onClick={() => signIn(provider.id)}
                   className="black_btn"
                 >
                   Sign In
