@@ -3,6 +3,7 @@ import {useState} from 'react';
 import {useSession} from 'next-auth/react';
 import Form from '../../components/Form';
 import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 
 const CreatePrompt = () => {
@@ -27,6 +28,7 @@ const CreatePrompt = () => {
             })
             if(response.ok){
                 router.push('/');
+                toast.success("Prompt created successfully")
             }
         } catch (error) {
             console.log(error);

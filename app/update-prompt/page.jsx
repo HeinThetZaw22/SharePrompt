@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 // import {useSession} from 'next-auth/react';
 import Form from '../../components/Form';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { toast } from 'sonner';
 
 
 const EditPrompt = () => {
@@ -43,6 +44,7 @@ const EditPrompt = () => {
             })
             if(response.ok){
                 router.push('/');
+                toast.success("Prompt edited successfully")
             }
         } catch (error) {
             console.log(error);

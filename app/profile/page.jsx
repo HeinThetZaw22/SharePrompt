@@ -21,12 +21,12 @@ const Myprofile = () => {
           // const filteredPosts = posts.filter((p) => p._id !== post._id);
           setPosts((posts) => posts.filter((p) => p._id !== post._id));
         } catch (error) {
-          
+          console.log(error);
         }
       }
     }
     useEffect(() => {
-      console.log(session?.user.id);
+      // console.log(session?.user.id);
         const fetchPosts = async () => {
            const response = await fetch(`api/users/${session?.user.id}/post`);
            const data = await response.json();
