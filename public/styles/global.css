@@ -89,7 +89,7 @@
   @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
 }
 
-.orange_gradient {
+/* .orange_gradient {
   @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
 }
 
@@ -99,6 +99,30 @@
 
 .blue_gradient {
   @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+} */
+
+.orange_gradient {
+  background: -webkit-linear-gradient(to right, #FFA500, #FF4500, #FFD700);
+  background: linear-gradient(to right, #FFA500, #FF4500, #FFD700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.green_gradient {
+  background: -webkit-linear-gradient(to right, #32CD32, #00FF00);
+  background: linear-gradient(to right, #32CD32, #00FF00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.blue_gradient {
+  background: -webkit-linear-gradient(to right, #0000FF, #00FFFF);
+  background: linear-gradient(to right, #0000FF, #00FFFF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .desc {
