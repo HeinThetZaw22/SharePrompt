@@ -7,13 +7,19 @@ const Home = () => {
         <br className="max-md:hidden" />
         <span className=" orange_gradient text-center">
           {" "}
-          Ai-Powered Prompts
+          Ai Prompts
         </span>
       </h1>
       <p className=" desc text-center">
-        Promtopia is a open-source ai powered prompting tool for modern world to
-        discover, create and share creative prompts
+        Promptgpt is a open-source ai powered prompting tool for modern website to
+        explore, create and share creative prompts
       </p>
+      <div className="flex max-sm:flex-col blue_gradient max-sm:gap-1 gap-4 pt-4">
+      <h1>Demo account</h1>
+      <p>Email : <span className=' orange_gradient'>demo97846@gmail.com</span></p>
+      <p>Password : <span className="orange_gradient">Demo2212@</span></p>
+      </div>
+      
       <Feed />
     </section>
   );

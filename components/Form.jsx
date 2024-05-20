@@ -33,8 +33,8 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           />
         </label>
         <div className=" flex flex-end  mx-3 mb-5 gap-4">
-          <Link href={"/"}  className=" text-gray-500 text-sm">Cancel</Link>
-          <button className=" px-5 py-1.5 rounded-full bg-primary-orange text-white" type="submit" disabled={submitting}>
+          <Link href={"/"}  className=" text-gray-500 hover:scale-90 transition bg-gray-300 px-5 py-2 rounded-full text-sm">Cancel</Link>
+          <button className=" px-5 py-1.5 hover:scale-90 transition rounded-full bg-primary-orange text-white" type="submit" disabled={submitting}>
               {submitting ? `${type}...` : type}
           </button>
         </div>

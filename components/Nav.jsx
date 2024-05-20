@@ -89,7 +89,7 @@ const Nav = () => {
           <div className=" relative">
             <Image
               alt="profile"
-              className=" rounded-full"
+              className=" rounded-full cursor-pointer"
               width={37}
               height={37}
               src={session?.user.image}
@@ -99,7 +99,7 @@ const Nav = () => {
               <div className="dropdown">
                 <Link
                   href="/profile"
-                  className="dropdown_link"
+                  className="dropdown_link bg-gray-100 px-5 py-1.5 hover:bg-gray-200 rounded-full"
                   onClick={() => {
                     setToggleDropdown(false);
                   }}
@@ -108,7 +108,7 @@ const Nav = () => {
                 </Link>
                 <Link
                   href="/create-prompt"
-                  className="dropdown_link"
+                  className="dropdown_link mt-3 bg-gray-100 px-5 py-1.5 hover:bg-gray-200 rounded-full"
                   onClick={() => {
                     setToggleDropdown(false);
                   }}
@@ -117,7 +117,7 @@ const Nav = () => {
                 </Link>
                 <button
                   type="submit"
-                  className=" mt-5 w-full black_btn"
+                  className=" mt-3 w-full black_btn"
                   onClick={() => {
                     setToggleDropdown(false);
                     signOut();
