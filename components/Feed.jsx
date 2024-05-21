@@ -25,13 +25,13 @@ const Feed = () => {
     const fetchPosts = async () => {
       const response = await fetch("/api/prompt");
       const data = await response.json();
-      // console.log(data);
-      if (Array.isArray(data)) {
-        setPost(data);
-      } else {
-        console.error("Fetched data is not an array");
-      }
-      // setPost(data);
+      console.log(data);
+      // if (Array.isArray(data)) {
+      //   setPost(data);
+      // } else {
+      //   console.error("Fetched data is not an array");
+      // }
+      setPost(data);
     };
     fetchPosts();
   }, []);
