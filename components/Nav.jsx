@@ -28,22 +28,22 @@ const Nav = () => {
   return (
     <nav className=" flex-between w-full pt-3 mb-16">
       <Link href={"/"} className="flex gap-2 flex-center">
-        <Image
+        {/* <Image
           alt="logo"
           src="./assets/images/logo.svg"
           width={30}
           height={30}
-        />
-        <p className=" logo_text">HEIN.DEV</p>
+        /> */}
+        <p className=" font-playwrite tracking-wide font-semibold text-lg">Prompt-G</p>
       </Link>
       {/* desktop view  */}
       <div className=" sm:flex hidden ">
         {session?.user ? (
           <div className="flex gap-2 md:gap-5">
-            <Link href={"/create-prompt"} className="black_btn">
+            <Link href={"/create-prompt"} className=" text-blue-600 font-nunito hover:bg-black hover:text-white  border border-black rounded-full py-1.5 px-5 transition-all text-center text-sm flex items-center justify-center">
               Create Post
             </Link>
-            <button type="button" onClick={signOut} className="outline_btn">
+            <button type="button" onClick={signOut} className=" text-red-600 font-nunito hover:bg-black hover:text-white  border border-black rounded-full py-1.5 px-5 transition-all text-center text-sm flex items-center justify-center">
               Sign Out
             </button>
             <Link href="/profile">
@@ -89,7 +89,7 @@ const Nav = () => {
           <div className=" relative">
             <Image
               alt="profile"
-              className=" rounded-full cursor-pointer"
+              className=" rounded-full border-neutral-500 border cursor-pointer"
               width={37}
               height={37}
               src={session?.user.image}
@@ -99,7 +99,7 @@ const Nav = () => {
               <div className="dropdown">
                 <Link
                   href="/profile"
-                  className="dropdown_link bg-gray-100 px-5 py-1.5 hover:bg-gray-200 rounded-full"
+                  className="dropdown_link  px-5 py-1.5 shadow-md hover:bg-gray-200 rounded-full"
                   onClick={() => {
                     setToggleDropdown(false);
                   }}
@@ -108,7 +108,7 @@ const Nav = () => {
                 </Link>
                 <Link
                   href="/create-prompt"
-                  className="dropdown_link mt-3 bg-gray-100 px-5 py-1.5 hover:bg-gray-200 rounded-full"
+                  className="dropdown_link mt-3  px-5 py-1.5 shadow-md hover:bg-gray-200 rounded-full"
                   onClick={() => {
                     setToggleDropdown(false);
                   }}

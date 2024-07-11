@@ -2,6 +2,7 @@ import Nav from "@components/Nav";
 import "../public/styles/global.css";
 import Provider from "@components/Provider";
 import { Toaster } from "sonner";
+import Footer from "@components/Footer";
 export const metadata = {
   title: "Promptopia",
   description: "Share and discover ai prompt",
@@ -19,6 +20,7 @@ const RootLayout = ({ children }) => {
             <Nav />
             {children}
             <Toaster position="top-center" />
+            <Footer />
           </main>
         </Provider>
       </body>

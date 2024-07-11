@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter} from 'next/navigation';
 import Profile from '@components/Profile'
+import { toast } from 'sonner';
 
 const Myprofile = () => {
   const router = useRouter();
@@ -20,6 +21,7 @@ const Myprofile = () => {
           });
           // const filteredPosts = posts.filter((p) => p._id !== post._id);
           setPosts((posts) => posts.filter((p) => p._id !== post._id));
+          toast.success("Prompt deleted successfully")
         } catch (error) {
           console.log(error);
         }
@@ -47,7 +49,7 @@ const Myprofile = () => {
   return (
     <Profile 
         name="My"
-        desc="Welcome to your profile"
+        desc="Manage your accout profile"
         data={posts}
         handleEdit={handleEdit}
         handleDelete={handleDelete}

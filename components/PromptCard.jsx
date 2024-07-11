@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
+
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
   const {data: session} = useSession();
   const pathName = usePathname();
@@ -59,12 +60,14 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
       >
         #{post.tag}
       </p>
+      <div className="">
       {session?.user.id === post.creater._id && pathName === '/profile' && (
-        <div className="flex-center gap-4 divide-x-2 divi divide-gray-300 mt-4 border-t pt-4">
+        <div className="flex-center gap-12 mt-4 border-t pt-4">
           <p onClick={handleEdit}  className="font-inter text-sm blue_gradient cursor-pointer">Edit</p>
-          <p onClick={handleDelete} className="font-inter text-sm orange_gradient cursor-pointer">Delete</p>
+          <p onClick={handleDelete} className="font-inter text-sm red_gradient cursor-pointer">Delete</p>
         </div>
       )}
+      </div>
     </div>
   );
 };
